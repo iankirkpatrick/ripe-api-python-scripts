@@ -1,6 +1,6 @@
 # Useful RIPE API scripts
 
-<p><h2>ripe-my-public-ip.py</h2></p>
+<p><h2>Name: ripe-my-public-ip.py</h2></p>
 Description: Queries the RIPE API to find the public IP of the querying system and returns the CIDR address block and BGP autonomous system information<br>
 
 <p><h2>Name: ripe-prefixes.py</h2></p>
