@@ -59,9 +59,11 @@ def query_ripe(ip_address):
 
     geoloc = requests.get("https://stat.ripe.net/data/geoloc/data.json?resource=%s" % ip_address)
     geoloc_data = json.loads(geoloc.text)
-    location = geoloc_data['data']['locations']
+    location = geoloc_data['data']['located_resources']
     location_data = dict(location[0])
-
+    locations=location_data['locations']
+    country_data=locations[0]
+    country=country_data['country']
 #-------------------------------------------------------------------------------
 # Display the results
 #-------------------------------------------------------------------------------
@@ -72,7 +74,7 @@ CIDR address block: %s
 Announced by BGP AS: %s
 Registration information: %s
 Reverse DNS Lookup: %s
-Geolocation country: %s''' % (ip_address,ipinfo_data['data']['prefix'],as_text,asinfo_result,rev_dns_record,location_data['country']))
+Geolocation country: %s''' % (ip_address,ipinfo_data['data']['prefix'],as_text,asinfo_result,rev_dns_record,country))
 
     print('''
 --------------------------------------------------------------------------------------------
